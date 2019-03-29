@@ -1,3 +1,10 @@
-<p>
-  nested-form works!
-</p>
+<div [formGroup]="form">
+  <label>
+    Number: <input type="text"
+           id="myNumber"
+           formControlName="myNumber" />
+    <div *ngIf="!isValid">
+      Your number is required.
+    </div>
+  </label>
+</div>

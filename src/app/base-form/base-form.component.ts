@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class BaseFormComponent implements OnInit {
   myForm: FormGroup;
   submitted = false;
+  success = false;
 
   constructor(private fb: FormBuilder) {
     this.myForm = this.fb.group({
@@ -22,6 +23,12 @@ export class BaseFormComponent implements OnInit {
   submit() {
 
     this.submitted = true;
+    
+    if (this.myForm.invalid) {
+      return;
+    }
+
+    this.success = true;
     console.log(this.myForm.get('name').errors);
   }
 

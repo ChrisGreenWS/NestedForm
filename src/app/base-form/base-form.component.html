@@ -9,6 +9,7 @@
       Your name is required.
     </div>
   </label>
+  <app-nested-form [form]="myForm"></app-nested-form>
 
   <input type="submit"
          value="Submit" />
@@ -20,3 +21,6 @@
 <br>Valid: {{ myForm.valid }}
 <br>Value: {{ myForm.value | json }}
 <br>{{myForm.get('name').errors?.length}}
+<h5 *ngIf="success">You Entered:</h5>
+<span>Name: {{myForm.value.name}}</span><br>
+<span>Number: {{myForm.value.myNumber}}</span>
